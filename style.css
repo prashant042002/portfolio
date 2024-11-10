@@ -1,5 +1,44 @@
 @import url("https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
+/* Dark Theme Colors */
+:root {
+  --primary-bg: #121212;
+  --secondary-bg: #1e1e1e;
+  --accent-color: #087075;
+  --text-color: #e0e0e0;
+  --card-bg: #333333;
+  --shadow-color: rgba(0, 0, 0, 0.6);
+  --hover-highlight: #66dce2;
+}
+
+body {
+  font-family: "Fira Sans", sans-serif;
+  color: var(--text-color);
+  background-color: var(--primary-bg);
+  background-image: url("https://img.freepik.com/free-photo/blue-toned-collection-paper-sheets-with-copy-space_23-2148320445.jpg?w=900&t=st=1709066598~exp=1709067198~hmac=c5c0995a7289d90e1e59f33310d419716d3975cedc8f97a8f31c119f7619dcaf");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  overflow-x: hidden;
+}
+
+/* Custom Scrollbar */
+body::-webkit-scrollbar {
+  width: 7px;
+}
+body::-webkit-scrollbar-track {
+  border-radius: 10px;
+  background-color: var(--secondary-bg);
+}
+body::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: var(--hover-highlight);
+}
+
+/* Navbar Styling */
+.navbar {
+  background-color: var(--secondary-bg);
+}
 .navbar-toggler,
 .navbar-toggler:focus,
 .navbar-toggler:active,
@@ -8,129 +47,134 @@
   border: none;
   box-shadow: none;
 }
-.navbar {
-  background-color: #dcf0f1;
-}
 .nav-link {
   font-size: 18px;
   position: relative;
+  color: var(--text-color);
   display: inline-block;
+  transition: color 0.3s;
+}
+.nav-link:hover {
+  color: var(--hover-highlight);
 }
 
+/* Navbar Hover Effect */
 .nav-link::before {
-  transition: 300ms;
-  height: 3px;
   content: "";
   position: absolute;
-  border-radius: 5px;
-  background-color: #087075;
-}
-
-.nav-hover::before {
-  width: 0%;
   bottom: 10px;
+  left: 0;
+  width: 0;
+  height: 3px;
+  border-radius: 5px;
+  background-color: var(--accent-color);
+  transition: width 300ms;
 }
-
-.nav-hover:hover::before {
+.nav-link:hover::before {
   width: 70%;
 }
 
-body {
-  background-image: url("https://img.freepik.com/free-photo/blue-toned-collection-paper-sheets-with-copy-space_23-2148320445.jpg?w=900&t=st=1709066598~exp=1709067198~hmac=c5c0995a7289d90e1e59f33310d419716d3975cedc8f97a8f31c119f7619dcaf");
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  overflow-x: hidden;
-}
-body::-webkit-scrollbar-track {
-  border-radius: 10px;
-}
-
-body::-webkit-scrollbar {
-  width: 7px;
-  /* background-color: #F5F5F5; */
-}
-
-body::-webkit-scrollbar-thumb {
-  border-radius: 10px;
-  background-color: #66dce2;
-}
-
-body {
-  font-family: "Fira Sans", sans-serif;
-}
-
+/* Home Section */
 #home {
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-}
-#home a {
-  color: rgb(37, 35, 35);
+  color: var(--text-color);
 }
 #home p {
   font-size: 25px;
 }
-#home i {
-  cursor: pointer;
-  transition: 0.5s;
+#home a {
+  color: rgb(200, 200, 200);
+  text-decoration: none;
+  transition: color 0.3s;
 }
-#home i:hover {
-  color: rgb(146, 146, 0);
+#home a:hover {
+  color: var(--hover-highlight);
 }
+
+/* Scroll Button */
 #scrollBtn {
   position: fixed;
   bottom: 20px;
   right: 20px;
   z-index: 999;
+  background-color: var(--hover-highlight);
+  color: var(--text-color);
+  padding: 10px;
+  border-radius: 50%;
+  box-shadow: 0px 4px 6px var(--shadow-color);
+  transition: background-color 0.3s;
 }
+#scrollBtn:hover {
+  background-color: var(--accent-color);
+}
+
+/* Skills Section */
 #skills i {
   height: 100px;
   width: 100px;
-  background-color: whitesmoke;
+  background-color: var(--card-bg);
   border-radius: 5px;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  box-shadow: 0px 4px 8px var(--shadow-color);
   display: flex;
   align-items: center;
   justify-content: center;
+  color: var(--hover-highlight);
+  transition: transform 0.3s, background-color 0.3s;
 }
 #skills i:hover {
   cursor: pointer;
-  transform: scale(1.03);
+  transform: scale(1.05);
+  background-color: var(--hover-highlight);
+  color: var(--primary-bg);
 }
+
+/* Projects Section */
 #projects .col-lg-4 {
   padding: 20px;
 }
 #projects .card {
+  background-color: var(--card-bg);
   border: none;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  color: var(--text-color);
+  box-shadow: 0px 4px 8px var(--shadow-color);
   margin: 10px auto;
   cursor: pointer;
   position: relative;
-  color: white;
+  transition: transform 0.3s;
+}
+#projects .card:hover {
+  transform: scale(1.03);
 }
 #projects .card-body {
   position: absolute;
   width: 100%;
   height: 100%;
-  border-radius: 5px;
-  display: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.8);
+  opacity: 0;
+  transition: opacity 0.3s;
 }
 #projects .card:hover .card-body {
-  display: block;
-  background-color: rgba(0, 0, 0, 0.8);
+  opacity: 1;
 }
 
+/* Education Section */
 #education .education {
-  cursor: pointer;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   background-color: rgba(46, 223, 193, 0.5);
+  box-shadow: 0px 4px 8px var(--shadow-color);
+  transition: transform 0.3s, background-color 0.3s;
 }
 #education .education:hover {
-  transform: scale(1.02);
+  transform: scale(1.03);
+  background-color: var(--hover-highlight);
 }
 
+/* Responsive Media Queries */
 @media (max-width: 768px) {
   #home img {
     margin-bottom: 30px;
